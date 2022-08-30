@@ -7,6 +7,8 @@ import { CartContext } from './CartContext';
 import React, { useState } from 'react';
 import Form from './Form';
 import DynamicComponent from './DynamicComponent'
+import MUI from './MUI'
+import Survey from './Survey'
 
 function App() {
 
@@ -20,6 +22,8 @@ function App() {
         <Link to='/checkout'>Shopping Cart</Link>
         <Link to='/form'>Form</Link>
         <Link to='/dynamic'>Dynamic Component</Link>
+        <Link to='/mui'>MUI</Link>
+        <Link to='/survey'>Survey</Link>
 
         <Routes>
           <Route path='/' element={<ProductList/>} />
@@ -31,6 +35,9 @@ function App() {
           </Route>          
           <Route path='/dynamic' element={<DynamicComponent/>}>
           </Route>
+          <Route path='/mui' element={<MUI/>} />
+          
+          <Route path='/survey' element={<Survey/>} />
 
           <Route path='/*' element={<p>404 Not Found</p>} />
         </Routes>        
