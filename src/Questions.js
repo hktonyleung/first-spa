@@ -2,6 +2,7 @@ import React from 'react'
 import { InputLabel} from '@mui/material'
 import Input from "./components/Input";
 import SelectComponent from './components/SelectComponent';
+import RadioButtonsGroup from './components/RadioButtonsGroup';
 
 export default function Questions(block) {
 
@@ -9,6 +10,7 @@ export default function Questions(block) {
     question: Input,
     input: Input,
     select: SelectComponent,
+    choice: RadioButtonsGroup,
   };
 
   // component does exist

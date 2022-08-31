@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Box, Stepper, Step, StepLabel, FormControl} from '@mui/material'
+import { Box, Stepper, Step, StepLabel, FormControl, Container} from '@mui/material'
 import Questions from './Questions'
 import { useForm } from "react-hook-form";
 import { SurveyContext } from './SurveyContext';
@@ -67,6 +67,19 @@ const questions = {
                         name: "apple",
                         message: "Apple is required",
                     },
+                    {
+                        _uid: "gJZoSLkfZV",
+                        component: "choice",
+                        title: "4. Please select the range?",
+                        name: "apple2",
+                        message: "Range is required",
+                        items: [
+                            {value: 10, text: "ten"}, 
+                            {value: 20, text: "twenty"}, 
+                            {value: 30, text: "thirty"}, 
+                            {value: 40, text: "forthy"}
+                        ]
+                    },
                 ]
             },
         ],
@@ -105,6 +118,7 @@ export default function Survey() {
         handleSubmit, 
         watch, 
         setFocus,
+        control,
         formState: { errors, isValid } 
         } = useForm({mode: 'all'});
     const [formStep, setFormStep] = useState(0)
@@ -118,12 +132,11 @@ export default function Survey() {
         completeFormStep()
     }
 
-
     return (
-        <SurveyContext.Provider value={{formStep, setFormStep, isValid, errors, register}}>
-
+        <SurveyContext.Provider value={{formStep, setFormStep, isValid, errors, register, control}}>
+            <Container>
             <form onSubmit={handleSubmit(submitForm)}>
-                <Box sx={{ minWidth: 100 }}>
+                <Box>
                     <StepperComponent steps={questions.content.stepper.steps} />
                     {/* 
                     <Stepper activeStep={1} alternativeLabel>
@@ -156,7 +169,9 @@ export default function Survey() {
                 <pre>
                 {JSON.stringify(watch(),null,2)}
                 </pre>
-            </form>
+            </form>                
+            </Container>
+
         </SurveyContext.Provider>
 
       );

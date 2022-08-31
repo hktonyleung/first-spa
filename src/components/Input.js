@@ -8,8 +8,8 @@ export default function Input(props) {
 
   const {register, errors } = useContext(SurveyContext)
   return (
-    <>
-      <TextField id="standard-basic" label={props.block.title} variant="outlined" fullWidth 
+    <div>
+      <TextField id="standard-basic" label={props.block.title} variant="outlined" fullWidth margin="normal"
       {...register(props.block.name, {
         required: props.block.message,
       })}
@@ -25,6 +25,6 @@ export default function Input(props) {
           })} 
         />        
       */}
-    </>
+    </div>
   )
 }
