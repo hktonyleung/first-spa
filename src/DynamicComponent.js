@@ -24,7 +24,7 @@ export default function DynamicComponent() {
             {
                 _uid: "gJZoSLkfZa",
                 component: "bar",
-                title: "Another title"
+                title: "Another title 1"
             },
           ]
         }
